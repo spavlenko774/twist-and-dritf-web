@@ -3,101 +3,38 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Twist & Drift</title>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes">
-    <style>
-      body {
-        text-align: center;
-        padding: 0;
-        border: 0;
-        margin: 0;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
-        background: #231F20;
-      }
-      canvas {
-        width: 100vw;
-        height: 100vh;
-        display: block;
-        background: #231F20;
-      }
-      #loading-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-family: Arial, sans-serif;
-        color: white;
-      }
-      #loading-bar {
-        width: 300px;
-        height: 20px;
-        background-color: #444;
-        border-radius: 10px;
-        overflow: hidden;
-        margin-top: 10px;
-      }
-      #loading-progress {
-        height: 100%;
-        width: 0%;
-        background-color: #00ff00;
-        transition: width 0.2s linear;
-      }
-    </style>
+    <title>Unity Web Player | Twist _ Drift</title>
   </head>
-  <body>
-    <div id="loading-container">
-      <div id="loading-bar">
-        <div id="loading-progress"></div>
-      </div>
-    </div>
-    <canvas id="unity-canvas" tabindex="-1"></canvas>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1280 height=720 tabindex="-1" style="width: 1280px; height: 720px; background: #231F20"></canvas>
     <script src="Build/twist-and-dritf-web.loader.js"></script>
     <script>
-      const SCALE_FACTOR = 0.6;
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
 
-      function updateCanvasSize() {
-        let canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100vw";
-        canvas.style.height = "100vh";
-        canvas.width = Math.floor(window.innerWidth * SCALE_FACTOR);
-        canvas.height = Math.floor(window.innerHeight * SCALE_FACTOR);
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+
+        document.body.style.textAlign = "left";
       }
 
-      window.addEventListener("resize", updateCanvasSize);
-      window.addEventListener("load", updateCanvasSize);
-
-      let canvas = document.querySelector("#unity-canvas");
-      let loadingContainer = document.querySelector("#loading-container");
-      let loadingProgress = document.querySelector("#loading-progress");
-
-      createUnityInstance(canvas, {
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        arguments: [],
         dataUrl: "Build/twist-and-dritf-web.data",
         frameworkUrl: "Build/twist-and-dritf-web.framework.js",
         codeUrl: "Build/twist-and-dritf-web.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Twist & Drift",
+        productName: "Twist _ Drift",
         productVersion: "0.1.0",
-        matchWebGLToCanvasSize: false,
-        devicePixelRatio: 1,
-        onProgress: function (unityInstance, progress) {
-          loadingProgress.style.width = (progress * 100) + "%";
-          loadingProgress.setAttribute("aria-valuenow", progress * 100);
-
-          if (progress >= 1) {
-            setTimeout(() => {
-              loadingContainer.style.display = "none";
-            }, 500);
-          }
-        }
-      }).then((unityInstance) => {
-        loadingContainer.style.display = "none";
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       });
     </script>
   </body>
