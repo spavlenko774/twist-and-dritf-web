@@ -36,23 +36,22 @@
             transform: translate(-50%, -50%);
             text-align: center;
             font-family: Arial, sans-serif;
-            color: white;
         }
 
-        #loading-bar {
+        #progress-bar {
             width: 300px;
             height: 20px;
-            background-color: #444;
+            background: #ccc;
             border-radius: 10px;
             overflow: hidden;
             margin-top: 10px;
         }
 
-        #loading-progress {
-            height: 100%;
+        #progress-fill {
             width: 0%;
-            background-color: #00ff00;
-            transition: width 0.2s linear;
+            height: 100%;
+            background: #4CAF50;
+            transition: width 0.2s ease;
         }
     </style>
 </head>
@@ -79,9 +78,9 @@
         window.addEventListener("resize", updateCanvasSize);
         window.addEventListener("load", updateCanvasSize);
 
-        let canvas = document.querySelector("#unity-canvas");
-        let loadingContainer = document.querySelector("#loading-container");
-        let loadingProgress = document.querySelector("#loading-progress")
+        let canvas = document.getElementById("unity-canvas");
+        let progressBar = document.getElementById("progress-fill");
+        let loadingContainer = document.getElementById("loading-container");
 
         let config = {
             dataUrl: "Build/twist-and-dritf-web.data",
