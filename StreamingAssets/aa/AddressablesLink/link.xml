@@ -1,20 +1,22 @@
 <linker>
   <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="TwistAndDrift.Camera.CameraFollow" preserve="all" />
-    <type fullname="TwistAndDrift.Camera.Configs.CameraSettings" preserve="all" />
+    <type fullname="TwistAndDrift.Camera.Configs.CameraConfig" preserve="all" />
     <type fullname="TwistAndDrift.Car" preserve="all" />
-    <type fullname="TwistAndDrift.CarBehaviour.Configs.DriveWheelSettings" preserve="all" />
-    <type fullname="TwistAndDrift.CarBehaviour.Configs.WheelGripSettings" preserve="all" />
-    <type fullname="TwistAndDrift.CarBehaviour.Configs.WheelSettings" preserve="all" />
+    <type fullname="TwistAndDrift.CarBehaviour.Configs.DriveWheelConfig" preserve="all" />
+    <type fullname="TwistAndDrift.CarBehaviour.Configs.TireSkidSoundConfig" preserve="all" />
+    <type fullname="TwistAndDrift.CarBehaviour.Configs.WheelConfig" preserve="all" />
+    <type fullname="TwistAndDrift.CarBehaviour.Configs.WheelGripConfig" preserve="all" />
     <type fullname="TwistAndDrift.CarBehaviour.DriveWheel" preserve="all" />
     <type fullname="TwistAndDrift.CarBehaviour.Effects.TireSmoke" preserve="all" />
+    <type fullname="TwistAndDrift.CarBehaviour.Effects.TireTrail" preserve="all" />
     <type fullname="TwistAndDrift.CarBehaviour.Sounds.TireSkidSound" preserve="all" />
     <type fullname="TwistAndDrift.CarBehaviour.SteeringWheel" preserve="all" />
     <type fullname="TwistAndDrift.CarBehaviour.TireGrip" preserve="all" />
     <type fullname="TwistAndDrift.CarBehaviour.WheelRotation" preserve="all" />
     <type fullname="TwistAndDrift.CarCollision" preserve="all" />
     <type fullname="TwistAndDrift.ExitGameplayButton" preserve="all" />
-    <type fullname="TwistAndDrift.Generation.Config.GenerationSettings" preserve="all" />
+    <type fullname="TwistAndDrift.Generation.Config.GenerationConfig" preserve="all" />
     <type fullname="TwistAndDrift.Generation.Segment" preserve="all" />
     <type fullname="TwistAndDrift.HighscoreText" preserve="all" />
     <type fullname="TwistAndDrift.Infrastructure.UserInterface.CloseInstructionButton" preserve="all" />
@@ -31,7 +33,6 @@
     <type fullname="TwistAndDrift.Obstacle" preserve="all" />
     <type fullname="TwistAndDrift.PlayButton" preserve="all" />
     <type fullname="TwistAndDrift.SoundsSettingsButton" preserve="all" />
-    <type fullname="TwistAndDrift.TireTrail" preserve="all" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
