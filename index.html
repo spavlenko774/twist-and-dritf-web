@@ -87,14 +87,15 @@
         matchWebGLToCanvasSize: false,
         devicePixelRatio: 1,
         onProgress: function (unityInstance, progress) {
-          loadingProgress.style.width = (progress * 100) + "%";
-          loadingProgress.setAttribute("aria-valuenow", progress * 100);
+            console.log(progress);
+        //   loadingProgress.style.width = (progress * 100) + "%";
+        //   loadingProgress.setAttribute("aria-valuenow", progress * 100);
 
-          if (progress >= 1) {
-            setTimeout(() => {
-              loadingContainer.style.display = "none";
-            }, 500);
-          }
+        //   if (progress >= 1) {
+        //     setTimeout(() => {
+        //       loadingContainer.style.display = "none";
+        //     }, 500);
+        //   }
         }
       }).then((unityInstance) => {
         loadingContainer.style.display = "none";
